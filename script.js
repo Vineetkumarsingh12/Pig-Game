@@ -57,7 +57,16 @@ btnRoll.addEventListener('click', function () {
     console.log(dice);
     //display dice
     diceEl.classList.remove('hidden');
-    diceEl.src = `dice-${dice}.png`;
+    
+    diceEl.style.transition = 'transform 1s ease-in';
+    diceEl.style.transform = 'rotate(0deg)'; // Initial rotation
+    setTimeout(() => {
+    
+      diceEl.style.transform = 'rotate(360deg)'; // Final rotation
+      diceEl.src = `dice-${dice}.png`;
+    }, 500); // Adding a short delay to ensure the initial rotation is applied before transitioning to the final rotation
+    
+    
 
     // check for rolled 1
     if (dice !== 1) {

@@ -16,7 +16,7 @@ body {
   font-weight: 400;
   height: 100vh;
   color: #333;
-  background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+  background-image: linear-gradient(to top left, #3216bb 0%, #2ebf5c 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,24 +25,31 @@ body {
 /* LAYOUT */
 main {
   position: relative;
-  width: 100rem;
-  height: 60rem;
-  background-color: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(200px);
-  filter: blur();
+  max-width: 100rem;
+  max-height: 60rem;
+ 
+  /* filter: blur(2px); */
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
   border-radius: 9px;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
+
+  margin: 4px;
+
+  
+}
+h2{
+  text-align: center;
 }
 
 .player {
-  flex: 50%;
+  /* flex: 50%; it is sorthand for flex-grow, flex-shrink and flex-basis */
+  
   padding: 9rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: all 0.75s;
+  /* transition: all 0.75s; */
 }
 
 /* ELEMENTS */
@@ -53,7 +60,7 @@ main {
   letter-spacing: 1px;
   word-spacing: 2px;
   font-weight: 300;
-  margin-bottom: 1rem;
+  margin-bottom: auto;
 }
 
 .score {
@@ -103,8 +110,9 @@ main {
 .btn {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  color: #444;
+  transform: translateX(-50%) ;
+  
+  color: #2a1480;
   background: none;
   border: none;
   font-family: inherit;
@@ -112,10 +120,10 @@ main {
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 400;
-  transition: all 0.2s;
+  /* transition: all 0.2s; */
 
-  background-color: white;
-  background-color: rgba(255, 255, 255, 0.6);
+  /* background-color: white; */
+  background-color: rgba(255, 255, 255, 0.929);
   backdrop-filter: blur(10px);
 
   padding: 0.7rem 2.5rem;
@@ -133,19 +141,19 @@ main {
   top: 4rem;
 }
 .btn--roll {
-  top: 39.3rem;
+  bottom: 7rem;
 }
 .btn--hold {
-  top: 46.1rem;
+  bottom: 1rem;
 }
 
 .btn:active {
   transform: translate(-50%, 3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1rem 2rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .btn:focus {
-  outline: none;
+  outline:#2ebf5c solid 0.1rem;
 }
 
 .dice {
@@ -153,8 +161,14 @@ main {
   left: 50%;
   top: 16.5rem;
   transform: translateX(-50%);
+  margin-left: -50px;
   height: 10rem;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+
+img{
+  /* transition: transform 1s ease-in-out; */
+  border-radius: 9px;
 }
 
 .player--winner {
@@ -168,4 +182,36 @@ main {
 
 .hidden {
   display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  
+
+  .player {
+    padding: 1rem;
+  }
+
+  .dice {
+    top: 13rem;
+    height: 8rem;
+    margin-left:-40px;
+  }
+
+  /* .btn {
+    font-size: 1.4rem;
+    padding: 0.5rem 1.5rem;
+  } */
+.btn{
+  padding: 7px 8px;
+}
+  .btn--new {
+    top: -3.3rem;
+  }
+  .btn--roll {
+    bottom: -3rem;
+
+  }
+  .btn--hold {
+    bottom: -9rem;
+  }
 }
